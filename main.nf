@@ -9,6 +9,8 @@
 ----------------------------------------------------------------------------------------
 */
 
+projectDir = workflow.projectDir
+
 log.info Headers.nf_core(workflow, params.monochrome_logs)
 ////////////////////////////////////////////////////
 /* --               PRINT HELP                 -- */
