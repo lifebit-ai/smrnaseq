@@ -40,9 +40,11 @@ if (params.genomes && params.genome && !params.genomes.containsKey(params.genome
 
 // Genome options
 params.bt_index = params.genome ? params.genomes[ params.genome ].bowtie ?: false : false
+params.mirtrace_species = params.genome ? params.genomes[ params.genome ].mirtrace_species ?: false : false
 params.fasta = params.genome ? params.genomes[ params.genome ].fasta ?: false : false
-params.mirna_gtf = params.genome ? params.genomes[ params.genome ].mirna_gtf ?: false : false
+params.mirna_gtf = params.mirtrace_species ? "${params.mirna_gtf_prefix}/${params.mirtrace_species}.gff3" : false
 
+      mirna_gtf   = "s3://lifebit-featured-datasets/pipelines/smrnaseq/references/mirbase/v22.1/hsa.gff3"
 // Define regular variables so that they can be overwritten
 clip_r1 = params.clip_r1
 three_prime_clip_r1 = params.three_prime_clip_r1
