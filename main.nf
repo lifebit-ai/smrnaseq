@@ -9,6 +9,8 @@
 ----------------------------------------------------------------------------------------
 */
 
+projectDir = workflow.projectDir
+
 log.info Headers.nf_core(workflow, params.monochrome_logs)
 ////////////////////////////////////////////////////
 /* --               PRINT HELP                 -- */
@@ -811,8 +813,8 @@ process mirdeep2 {
     script:
     """
     perl -ane 's/[ybkmrsw]/N/ig;print;' $hairpin > hairpin_ok.fa
-    sed 's/ .*//' $refgenome | awk '\$1 ~ /^>/ {gsub(/_/,"",\$1); print; next} {print}' > genome_nowhitespace.fa
-    
+    sed 's/ .*//' $refgenome > genome_nowhitespace.fa
+
     miRDeep2.pl \\
     $reads_collapsed \\
     genome_nowhitespace.fa \\
