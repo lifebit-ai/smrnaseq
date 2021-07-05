@@ -40,9 +40,8 @@ if (params.genomes && params.genome && !params.genomes.containsKey(params.genome
 
 // Genome options
 params.bt_index = params.genome ? params.genomes[ params.genome ].bowtie ?: false : false
-params.mirtrace_species = params.genome ? params.genomes[ params.genome ].mirtrace_species ?: false : false
 params.fasta = params.genome ? params.genomes[ params.genome ].fasta ?: false : false
-params.mirna_gtf = params.mirtrace_species ? "ftp://mirbase.org/pub/mirbase/CURRENT/genomes/${params.mirtrace_species}.gff3" : false
+params.mirna_gtf = params.genome ? params.genomes[ params.genome ].mirna_gtf ?: false : false
 
 // Define regular variables so that they can be overwritten
 clip_r1 = params.clip_r1
